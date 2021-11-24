@@ -2,6 +2,8 @@ namespace Rule.Test;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rule.Test.Mock;
+using System.Collections.Generic;
+using System.Linq;
 
 [TestClass]
 public class RuleTest
@@ -79,5 +81,36 @@ public class RuleTest
     {
         var result = new IsUppercase().Validate("test");
         Assert.IsFalse(result.IsValid);
+    }
+
+    [TestMethod]
+    public void HasMessagesTest()
+    {
+        var messages = new HasMessage(1)
+            .AddRule(new HasMessage(2))
+            .AddRule(new HasMessage(3))
+            .Validate(0)
+            .Messages;
+
+        List<string> expectedMessages = new()
+        {
+            "Message 3",
+            "Message 2",
+            "Message 1"
+        };
+
+        var areEqual = messages.SequenceEqual(expectedMessages);
+
+        Assert.IsTrue(areEqual);
+    }
+
+    [TestMethod]
+    public void NoMessagesTest()
+    {
+        var messages = new IsEven()
+            .Validate(0)
+            .Messages;
+
+        Assert.IsTrue(messages.Count is 0);
     }
 }
