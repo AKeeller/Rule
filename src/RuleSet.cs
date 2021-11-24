@@ -3,7 +3,7 @@ using System.Linq;
 
 public abstract class RuleSet<T>
 {
-    public abstract HashSet<Rule<T>> rules { get; }
+    protected abstract HashSet<Rule<T>> rules { get; }
 
     public ValidationResult Validate(T data)
     {
