@@ -2,9 +2,9 @@ namespace Rule.Test.Mock;
 
 public class IsBigger : Rule<int>
 {
-    private int number { get; init; }
+	private int number { get; init; }
 
-    public IsBigger(int number) => this.number = number;
+	public IsBigger(int number) => this.number = number;
 
-    protected override ValidationResult PartialValidation(int data) => new() { IsValid = data > number };
+	protected override ValidationResult PartialValidation(int data) => new() { IsValid = data > number };
 }
