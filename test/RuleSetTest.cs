@@ -1,7 +1,4 @@
-namespace Rule.Test;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rule.Test.Mock;
 
 [TestClass]
 public class RuleSetTest

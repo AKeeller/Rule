@@ -1,5 +1,4 @@
-namespace Rule.Test.Mock;
-
+using AKeeller.Rule;
 using System.Linq;
 
 public class IsUppercase : Rule<string>

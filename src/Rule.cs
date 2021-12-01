@@ -1,3 +1,5 @@
+namespace AKeeller.Rule;
+
 public abstract class Rule<T>
 {
 	public Rule<T> Next { get; set; }

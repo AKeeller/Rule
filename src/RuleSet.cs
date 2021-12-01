@@ -1,3 +1,5 @@
+namespace AKeeller.Rule;
+
 using System.Collections.Generic;
 using System.Linq;
 

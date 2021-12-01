@@ -1,7 +1,5 @@
-namespace Rule.Test;
-
+using AKeeller.Rule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rule.Test.Mock;
 using System.Collections.Generic;
 using System.Linq;
 

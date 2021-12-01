@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-
-namespace Rule.Test.Mock;
+using AKeeller.Rule;
 
 public class IsBigAndEven : RuleSet<int>
 {

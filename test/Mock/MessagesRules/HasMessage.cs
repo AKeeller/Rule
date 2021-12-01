@@ -1,4 +1,4 @@
-namespace Rule.Test.Mock;
+using AKeeller.Rule;
 
 public class HasMessage : Rule<int>
 {

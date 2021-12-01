@@ -1,6 +1,5 @@
-namespace Rule.Test.Mock;
-
 using System;
+using AKeeller.Rule;
 
 public class HasDigits : Rule<int>
 {
