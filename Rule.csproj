@@ -14,4 +14,10 @@
     <Compile Remove="test/**" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PackageId>AKeeller.Rule</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Alberto Amoruso</Authors>
+  </PropertyGroup>
+
 </Project>
