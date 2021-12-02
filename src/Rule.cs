@@ -2,7 +2,7 @@ namespace AKeeller.Rule;
 
 public abstract class Rule<T>
 {
-	public Rule<T> Next { get; set; }
+	public Rule<T> Next { get; private set; }
 
 	protected abstract ValidationResult PartialValidation(T data);
 
