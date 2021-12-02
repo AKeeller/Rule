@@ -111,4 +111,24 @@ public class RuleTest
 
 		Assert.IsTrue(messages.Count is 0);
 	}
+
+	[TestMethod]
+	public void SequentialValidationsTest()
+	{
+		var rule = new IsEven()
+			.AddRule(new HasDigits(2))
+			.AddRule(new IsBigger(20));
+
+		var result1 = rule.Validate(30);
+		var result2 = rule.Validate(40);
+		var result3 = rule.Validate(11);
+		var result4 = rule.Validate(15);
+		var result5 = rule.Validate(100);
+
+		Assert.IsTrue(result1.IsValid);
+		Assert.IsTrue(result2.IsValid);
+		Assert.IsFalse(result3.IsValid);
+		Assert.IsFalse(result4.IsValid);
+		Assert.IsFalse(result5.IsValid);
+	}
 }
