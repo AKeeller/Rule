@@ -10,12 +10,7 @@ public abstract class Rule<T>
 	{
 		var result = Next is null ? new() : Next.Validate(data);
 
-		var partialResult = PartialValidation(data);
-
-		result.IsValid &= partialResult.IsValid;
-		result.Messages.AddRange(partialResult.Messages);
-
-		return result;
+		return result += PartialValidation(data);
 	}
 
 	public Rule<T> AddRule(Rule<T> next)
