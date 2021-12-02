@@ -8,9 +8,16 @@ public abstract class Rule<T>
 
 	public ValidationResult Validate(T data)
 	{
-		var result = Next is null ? new() : Next.Validate(data);
+		var rule = this;
+		var result = new ValidationResult();
 
-		return result += PartialValidation(data);
+		while (rule is not null)
+		{
+			result += rule.PartialValidation(data);
+			rule = rule.Next;
+		}
+
+		return result;
 	}
 
 	public Rule<T> AddRule(Rule<T> next)
