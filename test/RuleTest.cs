@@ -60,7 +60,7 @@ public class RuleTest
 	{
 		var rule = new IsEven()
 			.AddRule(new HasDigits(5))
-			.AddRule(new IsBigger(10));
+			.AddRule(new IsBigger(50000));
 
 		var result = rule.Validate(1);
 
