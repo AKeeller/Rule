@@ -56,13 +56,15 @@ public class RuleTest
 	}
 
 	[TestMethod]
-	public void NotValidChainedTest()
+	[DataRow(1)]
+	[DataRow(40000)]
+	public void NotValidChainedTest(int value)
 	{
 		var rule = new IsEven()
 			.AddRule(new HasDigits(5))
 			.AddRule(new IsBigger(50000));
 
-		var result = rule.Validate(1);
+		var result = rule.Validate(value);
 
 		Assert.IsFalse(result.IsValid);
 	}
