@@ -1,0 +1,24 @@
+name: Publish Package
+
+on:
+  release:
+    types: created
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        source-url: https://nuget.pkg.github.com/AKeeller/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Pack
+      run: dotnet pack --no-build --no-restore --configuration Release
+    - name: Publish
+      run: dotnet nuget push bin/Release/*.nupkg
