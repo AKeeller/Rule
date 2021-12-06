@@ -33,4 +33,15 @@ public class ValidationResultTest
 
 		Assert.IsTrue(Enumerable.SequenceEqual(sum.Messages, expectedMessages));
 	}
+
+	[TestMethod]
+	public void SumNoMessagesTest()
+	{
+		var a = new ValidationResult();
+		var b = new ValidationResult();
+
+		var sum = a + b;
+
+		Assert.IsTrue(sum.Messages.Count is 0);
+	}
 }
