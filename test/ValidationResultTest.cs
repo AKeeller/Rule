@@ -7,33 +7,17 @@ using System.Linq;
 public class ValidationResultTest
 {
 	[TestMethod]
-	public void Sum1()
+	[DataRow(true, true, true)]
+	[DataRow(true, false, false)]
+	[DataRow(false, true, false)]
+	[DataRow(false, false, false)]
+	public void Sum(bool aIsValid, bool bIsValid, bool expectedIsValid)
 	{
-		var a = new ValidationResult { IsValid = true };
-		var b = new ValidationResult { IsValid = true };
+		var a = new ValidationResult { IsValid = aIsValid };
+		var b = new ValidationResult { IsValid = bIsValid };
 		var sum = a + b;
 
-		Assert.IsTrue(sum.IsValid);
-	}
-
-	[TestMethod]
-	public void Sum2()
-	{
-		var a = new ValidationResult { IsValid = true };
-		var b = new ValidationResult { IsValid = false };
-		var sum = a + b;
-
-		Assert.IsFalse(sum.IsValid);
-	}
-
-	[TestMethod]
-	public void Sum3()
-	{
-		var a = new ValidationResult { IsValid = false };
-		var b = new ValidationResult { IsValid = true };
-		var sum = a + b;
-
-		Assert.IsFalse(sum.IsValid);
+		Assert.AreEqual(expectedIsValid, sum.IsValid);
 	}
 
 	[TestMethod]
