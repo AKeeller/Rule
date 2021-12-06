@@ -6,10 +6,5 @@ public class HasMessage : Rule<int>
 
 	public HasMessage(int number) => this.number = number;
 
-	protected override ValidationResult PartialValidation(int data)
-	{
-		ValidationResult result = new();
-		result.Messages.Add($"Message {number}");
-		return result;
-	}
+	protected override ValidationResult PartialValidation(int data) => new() { Messages = { $"Message {number}" } };
 }
