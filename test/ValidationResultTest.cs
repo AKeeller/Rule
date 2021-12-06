@@ -21,7 +21,7 @@ public class ValidationResultTest
 	}
 
 	[TestMethod]
-	public void SumMessages()
+	public void SumMessagesTest()
 	{
 		var (m1, m2, m3) = ("Message 1", "Message 2", "Message 3");
 
