@@ -11,7 +11,7 @@ public struct ValidationResult
 	public static ValidationResult operator +(ValidationResult a, ValidationResult b) =>
 		new()
 		{
-			IsValid = a.IsValid & b.IsValid,
+			IsValid = a.IsValid && b.IsValid,
 			Messages = a.Messages.Concat(b.Messages).ToList()
 		};
 }
