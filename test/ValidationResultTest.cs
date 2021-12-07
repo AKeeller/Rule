@@ -44,4 +44,13 @@ public class ValidationResultTest
 
 		Assert.IsTrue(sum.Messages.Count is 0);
 	}
+
+	[TestMethod]
+	[DataRow(true)]
+	[DataRow(false)]
+	public void IsNotValidTest(bool IsValid)
+	{
+		var result = new ValidationResult { IsValid = IsValid };
+		Assert.AreEqual(result.IsNotValid, !IsValid);
+	}
 }

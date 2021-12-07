@@ -6,6 +6,7 @@ using System.Linq;
 public struct ValidationResult
 {
 	public bool IsValid = true;
+	public bool IsNotValid => !IsValid;
 	public List<string> Messages = new();
 
 	public static ValidationResult operator +(ValidationResult a, ValidationResult b) =>
