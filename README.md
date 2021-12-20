@@ -2,19 +2,31 @@
 
 ![AKeeller-Rule](https://img.shields.io/badge/AKeeller-Rule-blue)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AKeeller/Rule/.NET/main)
-![Nuget](https://img.shields.io/nuget/dt/AKeeller.Rule)
 
 Create business rules in a simple and elegant way.
 
 ## How to install
 
-Simply add the package `AKeeller.Rule`:
+1. Generate a new GitHub [Personal Access Token](https://github.com/settings/tokens) with `read:packages` permission.
 
-```shell
-dotnet add package AKeeller.Rule
-```
+2. Add a new *NuGet* source:
+
+    ```shell
+    # Substitute <USERNAME> with your GitHub username and <TOKEN> with your Personal Access Token.
+
+    dotnet nuget add source 'https://nuget.pkg.github.com/akeeller/index.json' --name 'github-akeeller' --username <USERNAME> --password <TOKEN>
+    ```
+
+    On platforms other than Windows, you might need to add the option `--store-password-in-clear-text`.
+
+3. While in the root folder of your project, simply add the package `AKeeller.Rule`:
+
+    ```shell
+    dotnet add package AKeeller.Rule
+    ```
 
 ## How to use
+
 > **🧑‍💻** In the following examples the `using AKeeller.Rule` directive has been omitted for simplicity.
 
 ### Subclass `Rule`
@@ -30,10 +42,10 @@ public class IsEven : Rule<int>
 }
 ```
 
-You only need to implement a single method which returns a `ValidationResult`. The latter is a class with only two properties:
+You only need to implement a single method which returns a `ValidationResult`. The latter is a struct with only two properties:
 
 - `bool IsValid`
-- `List<string> Messages`.
+- `List<string> Messages`
 
 That's it. Now we're ready to use our business rule to validate an `int`.
 
@@ -105,5 +117,6 @@ foreach (string message in result.Messages)
 
 ## FAQs
 
-#### **Why no lazy evaluation?**
+### **Why no lazy evaluation?**
+
 The idea is to receive error, status and info messages from every rule.
