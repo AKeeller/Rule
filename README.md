@@ -1,7 +1,7 @@
 # Rule
 
 ![AKeeller-Rule](https://img.shields.io/badge/AKeeller-Rule-blue)
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AKeeller/Rule/.NET/main)
+[![Build](https://github.com/AKeeller/Rule/actions/workflows/build.yml/badge.svg)](https://github.com/AKeeller/Rule/actions/workflows/build.yml)
 
 Create business rules in a simple and elegant way.
 
