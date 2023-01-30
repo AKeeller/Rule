@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
-
+  
   <ItemGroup Condition=" '$(Configuration)' == 'Debug' " >
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
@@ -16,7 +16,6 @@
 
   <PropertyGroup>
     <PackageId>AKeeller.Rule</PackageId>
-    <Version>1.1.0</Version>
     <Authors>Alberto Amoruso</Authors>
     <RepositoryUrl>https://github.com/AKeeller/Rule</RepositoryUrl>
   </PropertyGroup>
