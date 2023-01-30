@@ -9,6 +9,8 @@ public struct ValidationResult
 	public bool IsNotValid => !IsValid;
 	public List<string> Messages = new();
 
+	public ValidationResult(){}
+
 	public static ValidationResult operator +(ValidationResult a, ValidationResult b) =>
 		new()
 		{
